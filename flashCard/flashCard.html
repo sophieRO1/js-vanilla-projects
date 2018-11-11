@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>flashcard | js </title>
+    <style>
+        body {
+            background: rgb(8, 73, 104);
+            color: aliceblue;
+        }
+        
+        .container {
+            text-align: center;
+            font-size: 1.3rem;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1 id="demo">forms</h1>
+        <p>hello please enter ur name!</p>
+        <input type="text" id="answer">
+        <button type="button" id="btn">Submit</button>
+        <button type="button" id="reset">pick another card</button>
+        <br>
+        <br>
+        <p id="output"></p>
+    </div>
+    <script>
+        var fnum = Math.floor(Math.random() * 10) + 1;
+        var lnum = Math.floor(Math.random() * 10) + 1;
+        document.getElementById('demo').innerHTML = fnum + "+" + lnum
+        var correctAnswer = fnum + lnum;
+
+        // 
+        document.getElementById('btn').addEventListener('click', addition);
+
+
+
+        function addition() {
+
+            var ourAnswer = document.getElementById('answer').value;
+            if (isNaN(ourAnswer)) {
+                document.getElementById('output').innerHTML = "is not a number" + ourAnswer
+
+            } else {
+                if (ourAnswer == correctAnswer) {
+                    document.getElementById('output').innerHTML = 'correct! ' + fnum + '+' + lnum + '=' + correctAnswer;
+                } else {
+
+                    document.getElementById('output').innerHTML = 'not correct' + fnum + '+' + lnum + '!=' + correctAnswer;;
+                }
+            }
+
+        }
+
+        document.getElementById('reset').addEventListener('click', resett);
+
+        function resett() {
+            document.getElementById('answer').value = "";
+            document.getElementById('output').innerHTML = ""
+
+            fnum = Math.floor(Math.random() * 10) + 1;
+            lnum = Math.floor(Math.random() * 10) + 1;
+            document.getElementById('demo').innerHTML = fnum + "+" + lnum
+            correctAnswer = fnum + lnum;
+
+        }
+    </script>
+
+</body>
+
+</html>

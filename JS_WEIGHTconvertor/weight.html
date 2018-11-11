@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>weight convertor</title>
+
+    <style>
+        body {
+            background-image: url(weight.jpg);
+            background-position: center;
+            background-size: cover;
+            margin-top: 70px;
+            color: aliceblue;
+        }
+        
+        .card-title h4 {
+            margin-left: 10px;
+            margin-top: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+
+        <h1 class="center-align">Weight Convertor</h1>
+        <form action="#">
+            <div class="input-field">
+                <input id="lbsInput" type="number" class="validate" placeholder="enter pounds ...">
+            </div>
+        </form>
+
+        <!-- output  -->
+        <div id="output">
+
+            <div class="card">
+                <div class="card-content pink lighten-2">
+                    <h4>Grams:</h4>
+                    <div id="gramsOutput"></div>
+                </div>
+
+                <div class="card-content blue lighten-2">
+                    <h4>Kgrams:</h4>
+                    <div id="kgramsOutput"></div>
+                </div>
+
+                <div class="card-content purple lighten-2">
+                    <h4>Ounces:</h4>
+                    <div id="ozOutput"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- js -->
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+    <!-- costum js  -->
+
+    <script>
+        let weight = document.querySelector('#output');
+        output.style.display = 'none';
+        document.getElementById('lbsInput').addEventListener('input', function(e) {
+            output.style.display = 'block';
+
+            let lbs = e.target.value;
+            // grams
+            document.getElementById('gramsOutput').innerHTML = lbs / 0.0022046;
+            // kgrams
+            document.getElementById('kgramsOutput').innerHTML = lbs / 2.2046;
+            //ounces
+            document.getElementById('ozOutput').innerHTML = lbs * 16;
+
+
+
+        });
+    </script>
+
+</body>
+
+</html>
